@@ -114,7 +114,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       ...sub,
       id: `stu-${Date.now()}`,
       submittedAt: new Date().toISOString(),
-      status: 'Under Review',
+      status: 'Data Submitted',
       panX: 0,
       panY: 0,
       zoom: 1.0,

@@ -184,12 +184,12 @@ export const TenantView: React.FC = () => {
 
   const handleTriggerBatchGeneration = () => {
     tenantStudents.forEach(s => {
-      if (s.status === 'Data Submitted' || s.status === 'Batch Finalized') {
-        updateStudentStatus(s.id, 'Under Review');
+      if (s.status === 'Data Submitted' || s.status === 'Batch Finalized' || s.status === 'Under Review') {
+        updateStudentStatus(s.id, 'Printing');
       }
     });
     confetti({ particleCount: 50, spread: 60, origin: { y: 0.6 } });
-    alert('Proof sample (5 cards) and full-batch generation completed! Sent to School for preview.');
+    alert('⚡ Bulk Card Generation Triggered! All batch submissions automatically processed with templates and sent directly to the printing pipeline.');
   };
 
   const handleUpdatePrintStatus = (status: 'Printing' | 'Dispatched') => {
