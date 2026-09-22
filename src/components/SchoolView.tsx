@@ -232,17 +232,6 @@ export const SchoolView: React.FC = () => {
         >
           <Printer className="w-4 h-4" /> Print-Ready A4 Sheet Layout
         </button>
-
-        <button
-          onClick={() => setActiveTab('form_builder')}
-          className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
-            activeTab === 'form_builder'
-              ? 'bg-[#E12836] text-white shadow-xs'
-              : 'text-slate-600 hover:text-slate-900 bg-white hover:bg-slate-50 border border-slate-200'
-          }`}
-        >
-          <Sliders className="w-4 h-4" /> Form Builder (Master Synced)
-        </button>
       </div>
 
       {/* TAB 1: SUBMISSIONS MANAGEMENT */}
