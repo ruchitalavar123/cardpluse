@@ -62,18 +62,6 @@ export const HeaderBar: React.FC = () => {
             </button>
 
             <button
-              onClick={() => setRole('school')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 ${
-                role === 'school'
-                  ? 'bg-white text-slate-900 shadow-xs border border-slate-200/80 font-bold scale-[1.02]'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/50'
-              }`}
-            >
-              <GraduationCap className={`w-3.5 h-3.5 transition-colors duration-200 ${role === 'school' ? 'text-[#E12836]' : 'text-slate-400'}`} />
-              <span className="whitespace-nowrap">School / College</span>
-            </button>
-
-            <button
               onClick={() => setRole('student')}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 ${
                 role === 'student'
