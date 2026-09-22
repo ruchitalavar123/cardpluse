@@ -106,9 +106,59 @@
 
 ---
 
-## 8. Functional Requirements
+## 8. Detailed System Modules & Feature Breakdown
 
-### 8.1 Public Student Form & Live Preview (`FR-STU`)
+### 8.1 Module 1: Super Admin Management Console
+* **Module Purpose**: Central SaaS platform governance, print production hub provisioning, and global quota limits.
+* **Features**:
+  - **Print Hub Onboarding**: Create and manage commercial printing hubs (Tenants).
+  - **Production Quota Allocation**: Set maximum ID printing limits per tenant (e.g. 15,000 cards).
+  - **Global System Status Controls**: Maintenance toggles and platform usage analytics.
+
+### 8.2 Module 2: Tenant Admin Operations Hub (Yash Enterprises Hub)
+* **Module Purpose**: Full operational suite for managing institutions, template designs, field schemas, batch form links, data inspection, proofing, and duplex A4 print sheet imposition.
+* **Sub-Modules & Features**:
+  1. **Schools & Colleges Directory**: Onboard institutions with code, admin details, and assigned template.
+  2. **ID Card Template Library**:
+     - Upload front/back background graphic artwork PNG/PDF files.
+     - Define photo zone coordinates, size, and shape (`rounded`, `oval`, `rectangle`).
+     - Map text placeholders with custom font sizes, colors, alignments, and weights.
+  3. **Master & Custom Data Field Builder**:
+     - Define global master fields (`fullName`, `rollNo`, `className`, `division`, `dob`, `bloodGroup`, `phone`).
+     - Add institution-specific custom fields (`Hostel Pass`, `Bus Route Stop`, `Lab Group ID`).
+  4. **Class Batch & Tokenized Link Generator**:
+     - Create academic class/division folders (e.g., `Computer Science - Section A`).
+     - Configure field checklists for form submission.
+     - Auto-generate tokenized public URLs (`http://localhost:3000?form=public&school=sch-1&batch=batch-1...`).
+     - Instant copy-link functionality for email/WhatsApp forwarding to schools.
+  5. **Real-Time Submissions Intake Directory**:
+     - 3-Level hierarchical drill-down navigation: `Schools Directory` → `Class Batch Folders` → `Student Records Table`.
+  6. **Interactive Canvas Proofing Studio**:
+     - Live Photoshop-style drag-and-drop tool to adjust photo framing and nudge text positions across a batch.
+     - Toggle front/back card views with lanyard ribbon preview.
+  7. **Generation & Print Pipeline**:
+     - Direct bulk generation trigger pushing finalized data into print status without approval bottlenecking.
+     - Duplex A4 print sheet layout engine auto-arranging cards with corner crop/cut marks.
+
+### 8.3 Module 3: Zero-Login Public Student Form & Live Canvas Preview
+* **Module Purpose**: Zero-friction student/parent data entry portal with live visual confirmation and storage safeguards.
+* **Features**:
+  - **Tokenized URL Data Auto-Fill**: Parses `school`, `batch`, `class`, and `div` directly from query params.
+  - **Composite Uniqueness Check**: Prevents duplicate entries matching `Roll Number` + `Class`.
+  - **Guided Dual Photo Input**: File upload OR live camera webcam capture with face-positioning oval overlay.
+  - **Strict Storage & Quality Validation**:
+    - Format restriction: `JPG`, `PNG`, `WEBP`.
+    - File size limit: Hard ceiling of 5MB.
+    - Print resolution check: Minimum 200px × 200px required.
+  - **Real-Time Watermarked Canvas ID Card Preview**:
+    - Renders exact ID card as data is typed with front/back toggle.
+    - Diagonal translucent red overlay watermark: `"PREVIEW ONLY / UNAPPROVED"`.
+
+---
+
+## 9. Functional Requirements Specification
+
+### 9.1 Public Student Form & Live Preview (`FR-STU`)
 
 #### FR-STU-001: Tokenized Public Access
 * **Description**: The system shall allow students to access the registration form via a public tokenized URL containing `schoolId`, `batchId`, `className`, and `division` query parameters without requiring login.
@@ -131,7 +181,7 @@
 
 ---
 
-### 8.2 Tenant Management & Link Generation (`FR-TNT`)
+### 9.2 Tenant Management & Link Generation (`FR-TNT`)
 
 #### FR-TNT-001: Class Batch & Link Management
 * **Description**: The Tenant Admin shall be able to create Class Batches (e.g., "Computer Science - Section A") and publish tokenized form links.
